@@ -1,5 +1,7 @@
 package io.davidabejirin.assessment.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,19 +19,17 @@ public class SchoolClass {
     private Long id;
     private String name;
     @ManyToOne
+    @JoinColumn(name = "school_id" , referencedColumnName = "id")
+    @JsonManagedReference
     private School school;
 
     @OneToOne(mappedBy = "schoolClass", cascade = CascadeType.MERGE)
+    @JsonManagedReference
     private Student students;
 
     @OneToMany(mappedBy = "schoolClass")
-    private List<Subject> schoolClasses;
-
-    public SchoolClass(String name, School school) {
-        this.name = name;
-        this.school = school;
-    }
-
+    @JsonBackReference
+    private List<Subject> subjects;
     public SchoolClass(String name) {
         this.name = name;
     }

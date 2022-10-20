@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AddScoreDTO {
     private String subjectName;
-    private Term term;
+    private String term;
+    private String schoolClass;
     private int score;
 }
