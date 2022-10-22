@@ -15,10 +15,10 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "student")
+    @ManyToMany
     @JsonBackReference
     private List<Subject> subject;
-    @OneToOne(cascade = CascadeType.MERGE)
+    @OneToOne(fetch = FetchType.LAZY)
     @JsonBackReference
-    private SchoolClass schoolClass;
+    private Clazz clazz;
 }

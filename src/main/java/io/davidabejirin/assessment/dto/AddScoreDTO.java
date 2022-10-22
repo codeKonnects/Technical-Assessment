@@ -1,16 +1,18 @@
 package io.davidabejirin.assessment.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.davidabejirin.assessment.utils.Term;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+import java.io.Serializable;
+
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddScoreDTO {
-    private String subjectName;
+public class AddScoreDTO implements Serializable {
+    private Long subjectId;
     private String term;
-    private String schoolClass;
+    private Long classId;
     private int score;
 }

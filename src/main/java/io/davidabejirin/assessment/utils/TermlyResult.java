@@ -9,6 +9,6 @@ import java.util.OptionalDouble;
 @AllArgsConstructor
 @Data
 public class TermlyResult {
-    private OptionalDouble average;
+    private Double average;
     private Map<String, Double> result;
 }

@@ -16,7 +16,4 @@ public class School {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappedBy = "school")
-    @JsonBackReference
-    private List<SchoolClass> schoolClasses;
 }
